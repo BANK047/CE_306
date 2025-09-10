@@ -1,0 +1,32 @@
+.skill {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 2px;  
+}
+
+.skill.beginner {
+  background: #d4f7d4;
+  border: 1px solid #5cb85c;
+  color: #2d5a2d;
+}
+
+.skill.intermediate {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  color: #856404;
+}
+
+.skill.advanced {
+  background: #f8d7da;
+  border: 1px solid #dc3545;
+  color: #721c24;
+}
+
+.skill:not(.beginner):not(.intermediate):not(.advanced) {
+  background: #e9ecef;
+  border: 1px solid #6c757d;
+  color: #495057;
+}
