@@ -1,69 +1,42 @@
-# React + TypeScript + Vite
+1. SkillTag.tsx และ SkillTag.css
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+      หน้าที่: ใช้แสดง ทักษะ (Skill) ของผู้ใช้ โดยมีชื่อทักษะและระดับความสามารถ
+    การทำงาน:
+      - รับ name (ชื่อทักษะ) และ level (Beginner | Intermediate | Advanced) 
+      - แสดง <span> พร้อม class ตามระดับ
 
-Currently, two official plugins are available:
+    CSS (SkillTag.css)
+      .skill → สไตล์พื้นฐาน
+      .beginner → สีเขียวอ่อน
+      .intermediate → สีเหลืองอ่อน
+      .advanced → สีแดงอ่อน
+-----------------------------------------------------------------------
+2. UserProfileCard.tsx และ UserProfileCard.css
+    
+      หน้าที่: ใช้แสดงข้อมูลผู้ใช้ 1 คน
+    การทำงาน:
+      - แสดง Avatar (หรือ placeholder ถ้าไม่มีรูป)
+      - แสดงชื่อ, อีเมล
+      - แสดงสถานะ Online/Offline พร้อมจุดสีเขียว/เทา
+      - แสดงรายชื่อทักษะ โดยใช้ <SkillTag />
+      - ปุ่ม View Details → เรียก onViewDetails(user.id)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    CSS (UserProfileCard.css)
+      .card → กล่องโปรไฟล์
+      .avatar → รูปโปรไฟล์วงกลม
+      .status.online / .status.offline → สีแสดงสถานะ
+      .skill-container → จัด layout ของ Skill
+      .view-details-btn → ปุ่มกดแสดงรายละเอียด
+-----------------------------------------------------------------------
+3. App.tsx และ App.css
+      หน้าที่: เป็น root component ที่รวมทุกอย่าง
+    การทำงาน:
+      - สร้าง ข้อมูลผู้ใช้ (users) ตัวอย่าง 3 คน (Alice, Bob, Charlie)
+      - ส่งข้อมูลแต่ละคนไปที่ <UserProfileCard />
+      - เมื่อกดปุ่ม "View Details" → แสดง alert พร้อม ID ของ user
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    CSS (App.css)
+      .app-container → พื้นหลัง, padding
+      .app-title → หัวเรื่อง "User Profile Cards"
+      .cards-container → ใช้ flex จัดเรียงการ์ดผู้ใช้
+-----------------------------------------------------------------------
