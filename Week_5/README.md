@@ -1,69 +1,37 @@
-# React + TypeScript + Vite
+  5-1
+-------------------------------------------------------------------------
+การทำงาน:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  ใช้ useState สำหรับเก็บค่า count
 
-Currently, two official plugins are available:
+  สามารถรับค่าเริ่มต้นผ่าน props (intitail)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  มีฟังก์ชันหลัก 3 ตัว
 
-## Expanding the ESLint configuration
+  incress() → เพิ่มค่า count ขึ้นทีละ 1
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  decress() → ลดค่า count ลงทีละ 1
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  reset() → รีเซ็ตค่า count กลับไปเป็น 0
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+  มีปุ่ม 3 ปุ่มที่เชื่อมกับแต่ละฟังก์ชัน
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  แสดงผลตัวเลข count ตรงกลางหน้า
+-------------------------------------------------------------------------
+  
+  5-2
+-------------------------------------------------------------------------
+การทำงาน:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+  ใช้ useState เก็บค่าฟอร์ม (name, email)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+  มีฟังก์ชันหลัก 3 ตัว
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  handleChange(e) → อัปเดตค่าจาก input แต่ละช่องตาม name ของ input
+
+  handleSubmit(e) → เมื่อกด Submit จะแสดง alert ข้อมูลชื่อและอีเมล
+
+  handleClear() → ล้างค่าทั้งหมด กลับเป็นค่าว่าง
+
+  ข้อมูลที่กรอกจะแสดงผลแบบเรียลไทม์ใต้ฟอร์ม (form-output)
+  -------------------------------------------------------------------------
